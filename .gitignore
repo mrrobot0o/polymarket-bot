@@ -1,0 +1,68 @@
+# البيانات الحساسة - لا ترفعها لـ GitHub!
+.env
+.env.*
+*.env
+
+# المفاتيح والمحافظ
+*_key*
+*private*
+
+# السجلات
+logs/
+*.log
+
+# ملفات التشغيل
+trade_history.json
+claude_analysis.json
+trading_analysis.json
+last_analysis.json
+risk_state.json
+reinvest_state.json
+trading_report.*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/

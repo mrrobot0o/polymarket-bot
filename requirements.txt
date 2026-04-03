@@ -1,0 +1,27 @@
+# Polymarket Trading Bot - Requirements
+
+# Core
+python-dotenv>=1.0.0
+requests>=2.28.0
+httpx>=0.24.0
+web3>=6.0.0
+pydantic>=2.0.0
+
+# Polymarket
+py-clob-client>=0.17.0
+py-order-utils>=0.3.0
+
+# LangChain (optional - for AI predictions)
+langchain>=0.2.0
+langchain-community>=0.2.0
+langchain-core>=0.2.0
+langchain-anthropic>=0.3.0
+
+# Embeddings (free, no API key needed)
+sentence-transformers>=2.2.0
+
+# Vector DB
+chromadb>=0.5.0
+
+# Utils
+jq>=1.4.0
