@@ -1,105 +1,201 @@
-# 🤖 Polymarket Ultimate Trading Bot
+# 🤖 Polymarket AI Trading Bot - Ultimate Edition
 
-بوت تداول Polymarket الذكي مع Claude AI
+**بوت تداول Polymarket الذكي مع Claude AI**
+
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+---
 
 ## ✨ الميزات
 
 | الميزة | الوصف |
 |--------|-------|
-| 🧠 **Claude AI** | تحليل ذكي للأسواق باستخدام Claude |
-| 💰 **تداول تلقائي** | تنفيذ صفقات حقيقية على Polymarket |
-| 🛡️ **إدارة المخاطر** | حدود خسارة يومية، إيقاف تلقائي |
-| 📱 **إشعار تيليجرام** | تنبيهات فورية لكل صفقة |
-| 💵 **إعادة الاستثمار** | نمو مركب تلقائي |
+| 🧠 **Claude AI Analysis** | تحليل ذكي للأسواق باستخدام Claude |
+| 💰 **Real Trading** | تداول حقيقي على Polymarket |
+| 🛡️ **Risk Management** | إدارة مخاطر متقدمة |
+| 📱 **Telegram Alerts** | إشعارات فورية |
+| 💵 **Auto Reinvestment** | إعادة استثمار الأرباح |
 | 📊 **Backtesting** | اختبار الاستراتيجية |
-| 📈 **تقارير متقدمة** | CSV و JSON |
+| 📈 **Advanced Reports** | تقارير CSV/JSON |
+| 🌍 **Multi-Category** | رياضة، سياسة، كريبتو |
 
-## 🚀 التثبيت
+---
+
+## 🚀 التثبيت السريع
 
 ```bash
 # استنساخ المشروع
-git clone https://github.com/YOUR_USERNAME/polymarket-bot.git
+git clone https://github.com/mrrobot0o/polymarket-bot.git
 cd polymarket-bot
 
 # تثبيت المتطلبات
-pip install httpx python-dotenv web3 py_clob_client
+pip install -r requirements.txt
 
-# نسخ ملف الإعدادات
+# نسخ الإعدادات
 cp .env.example .env
 
 # تعديل الإعدادات
 nano .env
 ```
 
+---
+
 ## ⚙️ الإعدادات
 
 أنشئ ملف `.env`:
 
 ```env
-POLYGON_WALLET_PRIVATE_KEY=your_private_key
+# المحفظة
+POLYGON_WALLET_PRIVATE_KEY=your_private_key_here
+
+# Claude API
 ANTHROPIC_API_KEY=your_claude_api_key
 ANTHROPIC_BASE_URL=https://api.anthropic.com
 ANTHROPIC_MODEL=claude-opus-4-6
 ```
 
+---
+
 ## 🎮 التشغيل
 
+### بوت بسيط (قواعد فقط)
 ```bash
-# وضع المحاكاة (آمن)
+python3 bot.py --interval 120
+```
+
+### بوت Claude AI (تحليل ذكي)
+```bash
+python3 claude_bot_standalone.py --interval 120
+```
+
+### بوت التداول الكامل
+```bash
+python3 trading_bot.py --interval 120
+```
+
+### البوت الشامل (كل الميزات) ⭐
+```bash
 python3 ultimate_bot.py --interval 120
+```
 
-# تداول حقيقي
+### تداول حقيقي
+```bash
 python3 ultimate_bot.py --live --interval 120
+```
 
-# اختبار الاستراتيجية
+### اختبار الاستراتيجية
+```bash
 python3 ultimate_bot.py --backtest
+```
 
-# توليد تقرير
+### تقرير الأداء
+```bash
 python3 ultimate_bot.py --report
 ```
 
-## 📁 الملفات
+---
 
-| الملف | الوصف |
-|-------|-------|
-| `ultimate_bot.py` | البوت الشامل بكل الميزات ⭐ |
-| `trading_bot.py` | بوت التداول الأساسي |
-| `claude_bot_standalone.py` | بوت Claude فقط |
-| `bot.py` | بوت بسيط بدون AI |
+## 📁 هيكل المشروع
+
+```
+polymarket-bot/
+├── ultimate_bot.py          # البوت الشامل ⭐
+├── trading_bot.py           # بوت التداول
+├── claude_bot_standalone.py # بوت Claude
+├── bot.py                   # بوت بسيط
+├── requirements.txt         # المتطلبات
+├── .env.example             # نموذج الإعدادات
+├── README.md                # الدليل الإنجليزي
+├── README_AR.md             # الدليل العربي
+├── SETUP_GUIDE.md           # دليل الإعداد
+└── setup.sh                 # سكربت التثبيت
+```
+
+---
 
 ## 🛡️ إدارة المخاطر
 
 ```python
-MAX_DAILY_LOSS = 50      # أقصى خسارة يومية $
-MAX_DAILY_TRADES = 20    # أقصى صفقات يومية
-STOP_LOSS_PERCENT = 20   # إيقاف خسارة %
+MAX_DAILY_LOSS = 50       # أقصى خسارة يومية $
+MAX_DAILY_TRADES = 20     # أقصى صفقات يومية
+STOP_LOSS_PERCENT = 20    # إيقاف خسارة %
+TAKE_PROFIT_PERCENT = 50  # جني أرباح %
 ```
 
-## 📱 تيليجرام
+---
 
-للتفعيل، أضف في الكود:
+## 📱 إعدادات تيليجرام
 
 ```python
+# في ultimate_bot.py
 TELEGRAM_BOT_TOKEN = "your_bot_token"
 TELEGRAM_CHAT_ID = "your_chat_id"
 ```
 
+---
+
 ## 💰 المتطلبات
 
-- **USDC**: $50+ على شبكة Polygon
-- **MATIC**: 0.5+ للـ gas fees
+| العملة | المبلغ | السبب |
+|--------|--------|-------|
+| **USDC** | $50+ | للتداول |
+| **MATIC** | 0.5+ | للـ gas fees |
+| **الشبكة** | Polygon | مطلوبة |
 
-## ⚠️ تنبيه
+---
+
+## 📊 أمثلة على الاستخدام
+
+### تحليل سوق
+```
+🧠 Claude Analysis:
+Market: "Will GTA VI release before June 2026?"
+Price: 1.4%
+Recommendation: BUY_YES
+Confidence: 85%
+Edge: 22%
+Reasoning: سعر منخفض جداً مقارنة بالتوقعات
+```
+
+### تنفيذ صفقة
+```
+⚡ LIVE TRADE: BUY_YES
+💰 Size: $10.00
+📊 Price: 1.4%
+🧠 Edge: 22%
+📝 Reason: فرصة كبيرة - سعر غير عادل
+```
+
+---
+
+## ⚠️ تنبيه مهم
 
 ```
-التداول ينطوي على مخاطر!
-لا تتداول بأموال لا تستطيع خسارتها.
-هذا البوت للأغراض التعليمية.
+⚠️ التداول ينطوي على مخاطر!
+⚠️ لا تتداول بأموال لا تستطيع خسارتها.
+⚠️ هذا البوت للأغراض التعليمية.
+⚠️ الأداء السابق لا يضمن النتائج المستقبلية.
 ```
+
+---
 
 ## 📄 الرخصة
 
-MIT License
+MIT License - استخدم بحرية!
+
+---
+
+## 🤝 المساهمة
+
+المساهمات مرحب بها! افتح Issue أو Pull Request.
+
+---
+
+## 📞 الدعم
+
+- **GitHub Issues**: [رابط المشكلات](https://github.com/mrrobot0o/polymarket-bot/issues)
+- **Telegram**: تفعله من الإعدادات
 
 ---
 
