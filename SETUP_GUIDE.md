@@ -1,92 +1,202 @@
-# 🤖 Polymarket AI Trading Bot - Complete Project
+# 🚀 Setup Guide
 
-## 📦 التحميل والتثبيت
+## 📋 Prerequisites
 
-### الطريقة 1: من GitHub (الأصل)
+- Python 3.9+
+- pip
+- git
+
+---
+
+## 🔧 Installation
+
+### 1. Clone Repository
+
 ```bash
-git clone https://github.com/Polymarket/agents.git polymarket-bot
+git clone https://github.com/mrrobot0o/polymarket-bot.git
 cd polymarket-bot
 ```
 
-### الطريقة 2: استخدام الملفات الجاهزة
-
-## 📋 الملفات المطلوبة
-
-### 1. `.env` (المفاتيح)
-```env
-POLYGON_WALLET_PRIVATE_KEY="0x..."   # مفتاح محفظتك
-ANTHROPIC_API_KEY=""                  # اختياري - للـ AI
-ANTHROPIC_BASE_URL="https://api.anthropic.com"
-```
-
-### 2. `requirements.txt`
-```
-langchain>=0.2.0
-langchain-community>=0.2.0
-langchain-core>=0.2.0
-langchain-anthropic>=0.3.0
-python-dotenv>=1.0.0
-requests>=2.28.0
-httpx>=0.24.0
-web3>=6.0.0
-pydantic>=2.0.0
-py-clob-client>=0.17.0
-chromadb>=0.5.0
-sentence-transformers>=2.2.0
-```
-
-### 3. الملفات الرئيسية
-
-- `standalone_bot.py` - البوت المستقل الكامل
-- `continuous_bot.py` - البوت 24/7
-- `rule_bot.py` - تحليل لمرة واحدة
-- `agents/` - مجلد المكتبات
-
-## 🚀 التثبيت السريع
+### 2. Create Virtual Environment
 
 ```bash
-# 1. إنشاء المجلد
-mkdir polymarket-bot && cd polymarket-bot
+python3 -m venv venv
+source venv/bin/activate  # Linux/Mac
+# or
+.\venv\Scripts\activate  # Windows
+```
 
-# 2. تثبيت المتطلبات
+### 3. Install Dependencies
+
+```bash
 pip install -r requirements.txt
-
-# 3. إنشاء .env
-nano .env  # ضع مفتاح محفظتك
-
-# 4. تشغيل
-python3 standalone_bot.py
 ```
 
-## ⚙️ التشغيل
+### 4. Configure Environment
 
 ```bash
-# تحليل تجريبي
-python3 standalone_bot.py
-
-# تداول حقيقي
-python3 standalone_bot.py --live
-
-# تغيير الإعدادات
-python3 standalone_bot.py --interval 300 --min-volume 50000
+cp .env.example .env
+nano .env
 ```
 
-## 📊 المخرجات
+Add your configuration:
 
-- `logs/bot.log` - سجل النشاط
-- `last_analysis.json` - آخر تحليل
-- `trade_history.json` - سجل الصفقات
+```env
+# Wallet (required)
+POLYGON_WALLET_PRIVATE_KEY=your_private_key_here
 
-## ⚠️ المتطلبات
+# Claude API (required for AI)
+ANTHROPIC_API_KEY=your_api_key_here
+ANTHROPIC_BASE_URL=https://api.anthropic.com
+ANTHROPIC_MODEL=claude-opus-4-6
 
-1. **Python 3.9+**
-2. **محفظة Polygon** مع:
-   - USDC للتداول
-   - MATIC للـ gas
-3. **مفتاح المحفظة الخاص**
+# Telegram (optional)
+TELEGRAM_BOT_TOKEN=your_bot_token
+TELEGRAM_CHAT_ID=your_chat_id
+```
 
-## 🔒 الأمان
+---
 
-- لا تشارك مفتاح محفظتك
-- ابدأ بمبلغ صغير
-- راقب البوت بانتظام
+## 💰 Fund Your Wallet
+
+### 1. Get Your Wallet Address
+
+```bash
+python3 scripts/check_balance.py
+```
+
+### 2. Send Funds
+
+| Asset | Amount | Network |
+|--------|--------|---------|
+| **USDC** | $50+ | Polygon |
+| **MATIC** | 0.5+ | Polygon |
+
+### 3. Verify Balance
+
+```bash
+python3 scripts/check_balance.py
+```
+
+---
+
+## 🎮 Run the Bot
+
+### Simulation Mode (Safe)
+
+```bash
+python3 ultimate_bot.py --interval 120
+```
+
+### Live Trading
+
+```bash
+python3 ultimate_bot.py --live --interval 120
+```
+
+---
+
+## 📱 Setup Telegram (Optional)
+
+### 1. Create Bot
+
+1. Open @BotFather on Telegram
+2. Send `/newbot`
+3. Follow instructions
+4. Copy the token
+
+### 2. Get Chat ID
+
+1. Message your bot
+2. Visit: `https://api.telegram.org/bot<YOUR_TOKEN>/getUpdates`
+3. Find your chat_id
+
+### 3. Test
+
+```bash
+python3 scripts/telegram_test.py
+```
+
+---
+
+## 🔗 Bullpen CLI Setup (Optional)
+
+### 1. Install Bullpen CLI
+
+```bash
+# macOS
+brew install bullpenfi/tap/bullpen
+
+# Linux/Windows
+curl -fsSL https://cli.bullpen.fi/install.sh | sh
+```
+
+### 2. Login
+
+```bash
+bullpen login
+```
+
+### 3. Install AI Skills
+
+```bash
+bullpen skill install
+```
+
+### 4. Run Bullpen Bot
+
+```bash
+python3 bullpen_bot.py --interval 120
+```
+
+---
+
+## ✅ Verify Installation
+
+```bash
+# Check Python version
+python3 --version
+
+# Check dependencies
+pip list | grep -E "httpx|web3|anthropic"
+
+# Check configuration
+cat .env
+
+# Test run
+python3 ultimate_bot.py --interval 60
+```
+
+---
+
+## 🛠️ Troubleshooting
+
+### "Module not found"
+```bash
+pip install -r requirements.txt --upgrade
+```
+
+### "Insufficient balance"
+```bash
+# Check your balance
+python3 scripts/check_balance.py
+
+# Add more USDC/MATIC to your wallet
+```
+
+### "API error"
+```bash
+# Check your API keys
+cat .env | grep API_KEY
+```
+
+---
+
+## 📞 Need Help?
+
+- **GitHub Issues**: [Issues](https://github.com/mrrobot0o/polymarket-bot/issues)
+- **Documentation**: See README.md
+
+---
+
+**🎉 You're ready to trade!**

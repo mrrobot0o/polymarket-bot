@@ -1,80 +1,78 @@
-# 📋 ملخص المشروع
+# 📋 Project Summary
 
-## 🎯 الهدف
-بوت تداول ذكي على Polymarket يستخدم Claude AI للتحليل ويعمل 24/7
+## 🎯 Goal
+Intelligent trading bot for Polymarket using Claude AI, running 24/7
 
 ---
 
-## 📁 هيكل المشروع
+## 📁 Project Structure
 
 ```
 polymarket-bot/
 │
-├── 🤖 البوتات
-│   ├── ultimate_bot.py          # البوت الشامل ⭐
-│   ├── trading_bot.py           # بوت التداول
-│   ├── bullpen_bot.py           # بوت Bullpen CLI
-│   ├── claude_bot_standalone.py # بوت Claude AI
-│   └── bot.py                   # بوت بسيط
+├── 🤖 Bots
+│   ├── ultimate_bot.py          # Full-featured bot ⭐
+│   ├── trading_bot.py           # Trading bot
+│   ├── bullpen_bot.py           # Bullpen CLI bot
+│   ├── claude_bot_standalone.py # Claude AI bot
+│   └── bot.py                   # Simple bot
 │
 ├── 📂 scripts/
-│   ├── check_balance.py         # التحقق من الرصيد
-│   ├── telegram_test.py         # اختبار تيليجرام
-│   └── setup.sh                 # سكربت الإعداد
+│   ├── check_balance.py         # Check balance
+│   ├── telegram_test.py         # Test Telegram
+│   └── setup.sh                 # Setup script
 │
-├── 📄 التوثيق
-│   ├── README.md                # الدليل الإنجليزي
-│   ├── README_AR.md             # الدليل العربي
-│   ├── SETUP_GUIDE.md           # دليل الإعداد
-│   ├── SUMMARY.md               # هذا الملف
-│   └── BULLPEN_INTEGRATION.md   # دليل Bullpen
+├── 📄 Documentation
+│   ├── README.md                # Main guide
+│   ├── SUMMARY.md               # This file
+│   └── SETUP_GUIDE.md           # Setup guide
 │
-├── ⚙️ الإعدادات
-│   ├── requirements.txt         # المتطلبات
-│   ├── .env.example             # نموذج الإعدادات
-│   ├── .gitignore               # حماية البيانات
-│   └── setup.sh                 # تثبيت سريع
+├── ⚙️ Config
+│   ├── requirements.txt         # Dependencies
+│   ├── .env.example             # Config template
+│   ├── .gitignore               # Git ignore
+│   └── setup.sh                 # Quick install
 │
-└── 📂 logs/                     # السجلات
+└── 📂 logs/                     # Logs directory
 ```
 
 ---
 
-## ✨ الميزات
+## ✨ Features
 
 ### 🧠 Claude AI Analysis
 ```python
-# تحليل ذكي للأسواق
-recommendation = "BUY_YES"  # أو BUY_NO أو SKIP
-confidence = 85  # نسبة الثقة
-edge = 22  # الميزة المتوقعة
+# Intelligent market analysis
+recommendation = "BUY_YES"  # or BUY_NO or SKIP
+confidence = 85  # Confidence %
+edge = 22  # Expected edge
 ```
 
-### 💰 التداول الحقيقي
+### 💰 Real Trading
 ```bash
-# وضع المحاكاة
+# Simulation mode
 python3 ultimate_bot.py --interval 120
 
-# تداول حقيقي
+# Live trading
 python3 ultimate_bot.py --live --interval 120
 ```
 
-### 🛡️ إدارة المخاطر
+### 🛡️ Risk Management
 ```python
-MAX_DAILY_LOSS = 50       # أقصى خسارة يومية $
-MAX_DAILY_TRADES = 20     # أقصى صفقات يومية
-STOP_LOSS_PERCENT = 20    # إيقاف خسارة %
+MAX_DAILY_LOSS = 50       # Max daily loss $
+MAX_DAILY_TRADES = 20     # Max daily trades
+STOP_LOSS_PERCENT = 20    # Stop loss %
 ```
 
-### 📱 إشعار تيليجرام
+### 📱 Telegram Alerts
 ```python
 TELEGRAM_BOT_TOKEN = "your_token"
 TELEGRAM_CHAT_ID = "your_chat_id"
 ```
 
-### 💵 إعادة الاستثمار
+### 💵 Auto Reinvestment
 ```python
-REINVEST_PERCENT = 50  # reinvest 50% of profits
+REINVEST_PERCENT = 50  # Reinvest 50% of profits
 ```
 
 ### 📊 Backtesting
@@ -82,51 +80,51 @@ REINVEST_PERCENT = 50  # reinvest 50% of profits
 python3 ultimate_bot.py --backtest
 ```
 
-### 📈 التقارير
+### 📈 Reports
 ```bash
 python3 ultimate_bot.py --report
 ```
 
 ---
 
-## 🚀 التثبيت السريع
+## 🚀 Quick Install
 
 ```bash
-# 1. استنساخ المشروع
+# 1. Clone repository
 git clone https://github.com/mrrobot0o/polymarket-bot.git
 cd polymarket-bot
 
-# 2. تثبيت المتطلبات
+# 2. Install dependencies
 pip install -r requirements.txt
 
-# 3. إعداد البيئة
+# 3. Setup environment
 cp .env.example .env
-nano .env  # أضف مفاتيحك
+nano .env  # Add your keys
 
-# 4. تشغيل البوت
+# 4. Run bot
 python3 ultimate_bot.py --interval 120
 ```
 
 ---
 
-## 📋 أوامر التشغيل
+## 📋 Run Commands
 
-| الأمر | الوصف |
-|-------|-------|
-| `python3 ultimate_bot.py` | تشغيل البوت الشامل (محاكاة) |
-| `python3 ultimate_bot.py --live` | تداول حقيقي |
-| `python3 ultimate_bot.py --backtest` | اختبار الاستراتيجية |
-| `python3 ultimate_bot.py --report` | تقرير الأداء |
-| `python3 bullpen_bot.py --portfolio` | عرض المحفظة |
-| `python3 scripts/check_balance.py` | التحقق من الرصيد |
+| Command | Description |
+|---------|-------------|
+| `python3 ultimate_bot.py` | Run ultimate bot (simulation) |
+| `python3 ultimate_bot.py --live` | Live trading |
+| `python3 ultimate_bot.py --backtest` | Test strategy |
+| `python3 ultimate_bot.py --report` | Performance report |
+| `python3 bullpen_bot.py --portfolio` | Show portfolio |
+| `python3 scripts/check_balance.py` | Check balance |
 
 ---
 
-## 🔧 الإعدادات المطلوبة
+## 🔧 Required Settings
 
 ### .env
 ```env
-# المحفظة
+# Wallet
 POLYGON_WALLET_PRIVATE_KEY=your_private_key
 
 # Claude API
@@ -134,55 +132,55 @@ ANTHROPIC_API_KEY=your_api_key
 ANTHROPIC_BASE_URL=https://api.anthropic.com
 ANTHROPIC_MODEL=claude-opus-4-6
 
-# Telegram (اختياري)
+# Telegram (optional)
 TELEGRAM_BOT_TOKEN=your_bot_token
 TELEGRAM_CHAT_ID=your_chat_id
 ```
 
 ---
 
-## 💰 المتطلبات المالية
+## 💰 Financial Requirements
 
-| العملة | المبلغ | السبب |
-|--------|--------|-------|
-| **USDC** | $50+ | للتداول |
-| **MATIC** | 0.5+ | للـ gas fees |
-
----
-
-## 📊 الأداء المتوقع
-
-| السيناريو | النتيجة |
-|-----------|---------|
-| **أفضل حالة** | ربح 200%+ شهرياً |
-| **أسوأ حالة** | خسارة 100% |
-| **المتوقع** | ربح 20-50% شهرياً |
+| Asset | Amount | Purpose |
+|--------|--------|---------|
+| **USDC** | $50+ | For trading |
+| **MATIC** | 0.5+ | For gas fees |
 
 ---
 
-## ⚠️ تنبيهات مهمة
+## 📊 Expected Performance
+
+| Scenario | Result |
+|----------|--------|
+| **Best case** | 200%+ monthly profit |
+| **Worst case** | 100% loss |
+| **Expected** | 20-50% monthly profit |
+
+---
+
+## ⚠️ Important Warnings
 
 ```
-⚠️ التداول ينطوي على مخاطر!
-⚠️ لا تتداول بأموال لا تستطيع خسارتها.
-⚠️ هذا البوت للأغراض التعليمية.
-⚠️ الأداء السابق لا يضمن النتائج المستقبلية.
-⚠️ لا تشارك ملف .env أبداً!
+⚠️ Trading involves risk!
+⚠️ Only trade money you can afford to lose.
+⚠️ This bot is for educational purposes.
+⚠️ Past performance doesn't guarantee future results.
+⚠️ Never share your .env file!
 ```
 
 ---
 
-## 📞 الدعم
+## 📞 Support
 
-- **GitHub Issues**: [المشكلات](https://github.com/mrrobot0o/polymarket-bot/issues)
-- **المستودع**: [الرابط](https://github.com/mrrobot0o/polymarket-bot)
+- **GitHub Issues**: [Issues](https://github.com/mrrobot0o/polymarket-bot/issues)
+- **Repository**: [Link](https://github.com/mrrobot0o/polymarket-bot)
 
 ---
 
-## 📄 الرخصة
+## 📄 License
 
 MIT License
 
 ---
 
-**🎉 تم إنشاء هذا المشروع بواسطة OpenClaw AI**
+**🎉 Created by OpenClaw AI**
