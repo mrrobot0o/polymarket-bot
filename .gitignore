@@ -1,7 +1,7 @@
 # البيانات الحساسة - لا ترفعها لـ GitHub!
 .env
-.env.*
-*.env
+.env.local
+.env.*.local
 
 # المفاتيح والمحافظ
 *_key*
