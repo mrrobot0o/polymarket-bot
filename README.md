@@ -4,6 +4,16 @@
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub Stars](https://img.shields.io/github/stars/mrrobot0o/polymarket-bot.svg)](https://github.com/mrrobot0o/polymarket-bot/stargazers)
+
+## 🎯 ملخص سريع
+
+| العنصر | التفاصيل |
+|--------|----------|
+| **البوتات** | 5 ملفات |
+| **الميزات** | 10+ ميزة |
+| **اللغات** | العربية + الإنجليزية |
+| **التوثيق** | شامل |
 
 ---
 
